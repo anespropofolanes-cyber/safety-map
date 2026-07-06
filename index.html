@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- Anesthesia Safety Map | Developed by 心怡 -->
+<!-- Anesthesia Safety Map | Infinite Mind Anesthesia -->
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="心怡">
+<meta name="author" content="Infinite Mind Anesthesia">
 <meta name="generator" content="Anesthesia Safety Map">
 <title>麻醉安全導航 · Anesthesia Safety Map</title>
 <style>
@@ -199,7 +199,7 @@
 <div class="wrap" id="app"></div>
 <div id="modal"></div>
 <div id="toast" class="toast"></div>
-<div class="watermark">Anesthesia Safety Map ∞ 心怡</div>
+<div class="watermark">Anesthesia Safety Map ∞ Infinite Mind</div>
 
 <script>
 /* ==================== 資料層 ==================== */
@@ -593,7 +593,7 @@ const DEFAULT_SURGERIES = [
       {when:'誘導 / 固定氣道', what:'全麻在 induction room 插管、備 MRI 專用呼吸器；先把氣道與監測固定妥再進場；TCI/syringe pump 放室外，管線穿門縫/牆孔。'},
       {when:'掃描中', what:'麻醉者於室外等候監測；nasal EtCO₂ 與 SpO₂(建議兩台)是主要早期警訊；放射師會提醒剩餘時間。'},
       {when:'甦醒 / 轉出', what:'停 TCI、移監測、移回病床裝 SpO₂，通知恢復室與(小兒)兒科住院醫師/專科護理師轉送。'},
-      {when:'緊急插管 / 急救', what:'需緊急插管時整張床拖出 MRI 室、在走廊處理；需支援請放射師 call 4108；禁帶鐵磁器材入場。'}
+      {when:'緊急插管 / 急救', what:'需緊急插管時整張床拖出 MRI 室、在走廊處理；需支援請放射師呼叫麻醉科（依院內分機）；禁帶鐵磁器材入場。'}
     ],
     crisis:[
       {t:'磁場內氣道 / 呼吸危機', see:'SpO₂、EtCO₂、胸廓起伏', do:'立即把病人移出磁場到安全區再處理氣道；呼救', tell:'放射師、麻醉團隊', prep:'非鐵磁急救車、抽吸、氧氣'},
@@ -2125,8 +2125,20 @@ const DEFAULT_LINKS = [
   {id:'peds-openheart-drug', name:'小兒 Open Heart Drug List', url:'https://anespropofolanes-cyber.github.io/drug/', note:'體重換算 · 誘導 / Bypass / 強心藥 · 列印', cat:'劑量計算'},
   {id:'peds-tool', name:'小兒外科麻醉導航', url:'https://anespropofolanes-cyber.github.io/peds/', note:'ETT / 劑量 / 輸液 / CPR 計算', cat:'劑量計算'},
   {id:'last', name:'LAST 局麻藥中毒（急救指南）', url:'https://anespropofolanes-cyber.github.io/last/', note:'10 步驟 · 劑量計算 · ILE', cat:'危機 / 急救'},
+  {id:'acts-rosc', name:'72 小時 ROSC 後照護模擬', url:'https://anespropofolanes-cyber.github.io/acts_rosc_game/', note:'心跳停止後重症照護闖關 · 2025 AHA', cat:'危機 / 急救'},
+  {id:'air-embolism', name:'VATS 空氣栓塞完整教學', url:'https://anespropofolanes-cyber.github.io/air-embolism/', note:'胸腔鏡空氣栓塞辨識 → 急救流程 · 黃金鏈時間', cat:'危機 / 急救'},
+  {id:'praqt', name:'ProAQT 互動練習', url:'https://anespropofolanes-cyber.github.io/praqt/', note:'脈搏輪廓 · SVV 判讀 · 波形 · 操作 SOP', cat:'儀器 / 監測'},
+  {id:'psi-o3', name:'PSI × O3 腦監測判讀模擬器', url:'https://anespropofolanes-cyber.github.io/psi/', note:'SedLine PSI + Root O3 · DSA · 決策象限', cat:'儀器 / 監測'},
+  {id:'np-quiz', name:'麻醉 NP 國考題庫練習', url:'https://anespropofolanes-cyber.github.io/np/', note:'歷屆考題 · 分類難度篩選 · 錯題記錄（需密碼）', cat:'測驗 / 題庫'},
+  {id:'drug-game', name:'麻醉藥物測驗系統', url:'https://anespropofolanes-cyber.github.io/drug-game/', note:'藥理 70+ 題 · 計時 / 自由模式 · 錯題複習', cat:'測驗 / 題庫'},
   {id:'typea-tool', name:'Type A 主動脈剝離（互動教學）', url:'https://anespropofolanes-cyber.github.io/typea/', note:'互動教學版', cat:'教學 / 流程'},
-  {id:'epidural', name:'減痛分娩完整流程', url:'https://anespropofolanes-cyber.github.io/painless/epidural_flow_public.html', note:'評估 → 執行 → 掛機 → 計價', cat:'教學 / 流程'}
+  {id:'epidural', name:'減痛分娩完整流程', url:'https://anespropofolanes-cyber.github.io/painless/epidural_flow_public.html', note:'評估 → 執行 → 掛機 → 計價', cat:'教學 / 流程'},
+  {id:'door', name:'麻醉的門（觀念決策）', url:'https://anespropofolanes-cyber.github.io/door/', note:'20 道門 · 核心觀念鑰匙 + 臨床決策題', cat:'教學 / 流程'},
+  {id:'airway', name:'呼吸道管理臨床訓練', url:'https://anespropofolanes-cyber.github.io/airway/', note:'呼吸道管理情境訓練', cat:'教學 / 流程'},
+  {id:'airway-adv', name:'呼吸道管理進階訓練 II', url:'https://anespropofolanes-cyber.github.io/airway-advanced/', note:'困難氣道進階情境', cat:'教學 / 流程'},
+  {id:'airway-flash', name:'氣道麻醉背誦小卡', url:'https://anespropofolanes-cyber.github.io/airwayflashcards/', note:'RSI · LEMON · 困難氣道演算法 · 30 張翻牌', cat:'教學 / 流程'},
+  {id:'masa-game', name:'麻專進階遊戲（The Sleep Book）', url:'https://anespropofolanes-cyber.github.io/masa-game2/', note:'CRNANP III 進階申請闖關 · 文件清單 · 讀書報告六關 AI 輔助', cat:'教學 / 流程'},
+  {id:'tof-game', name:'TOF 互動遊戲', url:'https://anespropofolanes-cyber.github.io/TOF-game/', note:'肌鬆監測 TOF 教學遊戲', cat:'教學 / 流程'}
 ];
 
 const DEFAULT_CRISES = [
@@ -4445,10 +4457,11 @@ function renderAdmin(){
       <span class="mini del" onclick="deleteLink('${l.id}')">刪除</span></div>`;
   });
   h+=`<div class="sec-label">各軸參考卡（清單）</div>`;
-  [['equipment','儀器 / 設備'],['disease','疾病 / 共病'],['crisis','危機情境']].forEach(a=>{
+  [['disease','疾病 / 共病']].forEach(a=>{
     h+=`<div class="adminrow"><span class="nm">${a[1]}</span>
       <span class="mini" onclick="go('axisedit','${a[0]}')">編輯</span></div>`;
   });
+  h+=`<div class="note">危機卡與儀器參考卡由卡片資料（crises / refs）自動分組，不在此編輯。新增方式：寫在 Notion 請 Claude 轉卡，或在「資料備份 / 匯入」貼 {"crises":[...]} / {"refs":[...]} 附加匯入。</div>`;
   h+=`<div class="btnrow" style="margin-top:24px">
     <button class="btn danger" onclick="resetContent()">重設為預設內容</button></div>`;
   app.innerHTML=h;
@@ -4560,9 +4573,15 @@ function renderEditLink(id){
   h+=inp('l_url','網址 / 檔名',l.url,'https://… 或 LAST.html');
   h+=inp('l_note','說明（可留空）',l.note);
   const cats=(LINKS||[]).map(x=>(x.cat||'').trim()).filter((v,i,a)=>v&&a.indexOf(v)===i);
-  h+=`<div class="field"><label>分類 <span class="hint">同名自動歸為一組；留空＝未分類。順序用管理頁的上移/下移調</span></label>
-    <input type="text" id="l_cat" value="${esc(l.cat||'')}" list="catlist">
-    <datalist id="catlist">${cats.map(c=>`<option value="${esc(c)}">`).join('')}</datalist></div>`;
+  const cur=(l.cat||'').trim();
+  if(cur && !cats.includes(cur)) cats.push(cur);
+  h+=`<div class="field"><label>分類 <span class="hint">選現有分類避免打錯字；要開新分類選「＋新增分類…」。順序用管理頁的上移/下移調</span></label>
+    <select id="l_cat_sel" onchange="document.getElementById('l_cat_new').style.display=this.value==='__new'?'block':'none'">
+      <option value=""${cur?'':' selected'}>（未分類）</option>
+      ${cats.map(c=>`<option value="${esc(c)}"${c===cur?' selected':''}>${esc(c)}</option>`).join('')}
+      <option value="__new">＋新增分類…</option>
+    </select>
+    <input type="text" id="l_cat_new" placeholder="輸入新分類名稱" style="display:none;margin-top:6px"></div>`;
   h+=`<div class="btnrow"><button class="btn primary" onclick="saveLink('${isNew?'':l.id}')">儲存</button>
     <button class="btn ghost" onclick="go('admin')">取消</button></div>`;
   app.innerHTML=h;
@@ -4571,7 +4590,9 @@ function saveLink(origId){
   const g=fid=>document.getElementById(fid).value;
   const name=g('l_name').trim(); if(!name){ toast('請填名稱'); return; }
   const id=origId||('l'+Date.now().toString(36));
-  const obj={id,name,url:g('l_url').trim(),note:g('l_note').trim(),cat:(g('l_cat')||'').trim()};
+  const sel=g('l_cat_sel');
+  const cat=sel==='__new'?(g('l_cat_new')||'').trim():sel.trim();
+  const obj={id,name,url:g('l_url').trim(),note:g('l_note').trim(),cat};
   const i=(LINKS||[]).findIndex(x=>x.id===origId);
   if(i>=0) LINKS[i]=obj; else LINKS.push(obj);
   saveContent(); toast('已儲存'); go(obj.url?'tools':'admin');
@@ -4601,7 +4622,7 @@ function saveDepts(){
 }
 
 function renderEditAxis(key){
-  const names={equipment:'儀器 / 設備',drug:'藥物',disease:'疾病 / 共病',crisis:'危機情境'};
+  const names={disease:'疾病 / 共病'}; // crisis/equipment 已改由 crises/refs 卡片資料驅動，不再走 TAXO 編輯
   if(!names[key]) return renderAdmin();
   let h=`<h1 class="page">編輯：${names[key]}</h1>
   <div class="note">格式：「# 分類」為標題，下面每行一項。</div>
